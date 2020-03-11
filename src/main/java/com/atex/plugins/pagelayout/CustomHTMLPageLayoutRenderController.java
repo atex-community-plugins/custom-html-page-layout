@@ -1,0 +1,73 @@
+package com.atex.plugins.pagelayout;
+
+import com.polopoly.cm.ContentId;
+import com.polopoly.cm.ContentReference;
+import com.polopoly.cm.policymvc.PolicyModelDomain;
+import com.polopoly.model.Model;
+import com.polopoly.model.ModelPathUtil;
+import com.polopoly.render.RenderRequest;
+import com.polopoly.siteengine.dispatcher.ControllerContext;
+import com.polopoly.siteengine.model.TopModel;
+import com.polopoly.siteengine.mvc.RenderControllerBase;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class CustomHTMLPageLayoutRenderController extends RenderControllerBase {
+
+    private static final Logger LOGGER = Logger.getLogger(CustomHTMLPageLayoutRenderController.class.getName());
+
+    private static final String ARTICLE_MODEL_ATTR = "article";
+
+    @Override
+    public void populateModelBeforeCacheKey(final RenderRequest request,
+                                            final TopModel topModel,
+                                            final ControllerContext context) {
+
+        final PolicyModelDomain domain = (PolicyModelDomain) context.getModelDomain();
+
+        List<Model> pagePath = new ArrayList<Model>();
+        for (ContentId pathId : topModel.getContext().getPage().getContentPath()) {
+            try {
+                pagePath.add(context.getModelProvider().getModel(pathId));
+            } catch (Exception e) {
+                LOGGER.log(Level.WARNING, "Error getting model", e);
+            }
+        }
+        topModel.getLocal().setChild("pagePath", pagePath);
+        List<Model> topPages = new ArrayList<Model>();
+        ListIterator<ContentReference> iterator =
+                topModel.getContext().getSite().getBean().getSubPages().getListIterator();
+        while (iterator.hasNext()) {
+            ContentReference ref = iterator.next();
+            try {
+                topPages.add(context.getModelProvider().getModel(ref.getReferredContentId()));
+            } catch (Exception e) {
+                LOGGER.log(Level.WARNING, "Error getting model", e);
+            }
+        }
+
+
+        if (topModel.getContext().getPage().getPathAfterPage() != null) {
+            ContentId contentId = topModel.getContext().getPage().getPathAfterPage().getLast();
+
+            if (contentId != null) {
+                try {
+                    Model articleModel = domain.getModel(contentId);
+
+                    ModelPathUtil.set(topModel.getStack(), ARTICLE_MODEL_ATTR, articleModel);
+                } catch (Exception e) {
+                    LOGGER.log(Level.WARNING, "Unable to get model from " + contentId.getContentIdString(), e);
+                }
+
+            }
+
+        }
+
+    }
+
+
+}

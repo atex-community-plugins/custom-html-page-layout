@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+  <!--This file contains input template definitions -->
+  <input-template name="com.atex.plugins.pagelayout.CustomHTMLPageLayoutRenderController">
+    <policy>com.polopoly.siteengine.standard.content.ContentBasePolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <content-xml>
+      <component group="polopoly.Content" name="name">Custom HTML Page Layout</component>
+    </content-xml>
+    <layout name="menu" input-template="p.AjaxPageMenu">
+      <layout name="main" input-template="p.Page" label="com.atex.plugns.pagelayout.customhtml.MainSlot">
+        <layout name="columns" input-template="p.ColumnHolder">
+          <layout name="col-main" input-template="p.Column">
+            <param name="width">100%</param>
+            <param name="widthRelative">true</param>
+            <field name="main" input-template="p.siteengine.layout.Slot.it">
+              <param name="defaultInheritSetting">false</param>
+              <param name="displayInheritSetting">false</param>
+            </field>
+          </layout>
+        </layout>
+      </layout>
+
+    </layout>
+
+    <output-templates mode="www">
+      <id>com.atex.plugins.pagelayout.CustomHTMLPageLayoutRenderController.ot</id>
+    </output-templates>
+    <output-templates mode="mobile">
+      <id>com.atex.plugins.pagelayout.CustomHTMLPageLayoutRenderController.ot</id>
+    </output-templates>
+  </input-template>
+</template-definition>

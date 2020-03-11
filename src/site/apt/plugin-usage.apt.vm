@@ -1,0 +1,38 @@
+Usage
+
+  This plugin has a page layout called "Custom HTML Page Layout".
+
+
+  It takes the final part of the path in the rendering content path and inserts into a stack variables called "article".
+
+  If being used to preview DESK content then the following model variables can be used:
+
+    $m.stack.article.contentData.headline.text
+
+    $m.stack.article.contentData.lead.text
+
+    $m.stack.article.contentData.body.text
+
+    $m.stack.article.contentData.byline
+
+
+   For DESK images , these can be referenced thus:
+
+
+      #if ($m.stack.article.contentData.images.size() > 0)
+        #set ($img = $m.stack.article.contentData.images[0])
+        #set ($url=$tool_img.getUrlBuilder($img.content.contentId.contentIdString).width(800).format('3x2').type('jpg').quality(0.6).buildUrl())
+        #set ($caption=$img.content.contentData.caption)
+      
+      <figure >
+          <img class="lazyload" data-src="$url" alt="$caption"
+                             data-srcset="$url 300w,$url 400w,$url 600w,$url 800w,$url 1000w" data-sizes="auto" />
+            <noscript><img src="$url" alt="$caption"></noscript>
+      </figure>
+
+      #end
+
+      Access aspects of the image is done like this:
+
+        $img.content.get("atex.Image")
+        $img.content.get("atex.ImageEditInfo")
