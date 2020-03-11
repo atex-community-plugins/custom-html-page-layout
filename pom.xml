@@ -7,6 +7,10 @@
     <description>
         A page layout using custom HTML which can be used to inject model variables using velocity
     </description>
+    <groupId>com.atex.plugins</groupId>
+    <artifactId>custom-html-page-layout</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <parent>
         <groupId>com.polopoly</groupId>
@@ -20,11 +24,54 @@
         <url>http://www.atex.com</url>
     </organization>
 
-    <groupId>com.atex.plugins</groupId>
-    <artifactId>custom-html-page-layout</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
+
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>polopoly-pd-plugins</id>
+            <name>Polopoly Product Plugins</name>
+            <url>http://maven.polopoly.com/nexus/content/repositories/polopoly-pd-plugins</url>
+            <layout>default</layout>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>polopoly-pd-plugins-snapshots</id>
+            <name>Polopoly Product Plugins Snapshots</name>
+            <url>http://maven.polopoly.com/nexus/content/repositories/polopoly-pd-plugins-snapshots</url>
+            <layout>default</layout>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <licenses>
+        <license>
+            <name>Atex Polopoly Source Code License</name>
+            <url>http://support.polopoly.com/confluence/display/GREENHOUSE/APSCL</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>products</id>
+            <name>Polopoly Products</name>
+            <email>support.polopoly@atex.com</email>
+            <organization>Atex</organization>
+            <organizationUrl>http://www.atex.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <issueManagement>
+        <system>JIRA</system>
+        <url>http://support.atex.com/jira/browse/GONG</url>
+    </issueManagement>
+
+    <scm>
+        <developerConnection>scm:git:git@github.com:atex-community-plugins/custom-html-page-layout.git</developerConnection>
+        <url>https://github.com/atex-community-plugins/custom-html-page-layout</url>
+        <tag>HEAD</tag>
+    </scm>
+    
     <properties>
         <polopoly.version>10.18.2-fp1</polopoly.version>
         <baseline.version>4.0.10</baseline.version>
