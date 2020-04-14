@@ -14,7 +14,7 @@
         <externalid>p.siteengine.VelocityRenderer</externalid>
       </contentid>
     </contentref>
-    <component group="output/renderer" name="templateFileName">com.atex.plugins.pagelayout.CustomHTMLPageLayoutRenderController.vm</component>
+    <component group="output/renderer" name="templateFileName">com.atex.plugins.pagelayout.CustomHTMLPageLayout.vm</component>
     <contentref group="output/controller" name="selected">
       <contentid>
         <externalid>p.siteengine.JavaClassRenderController</externalid>
