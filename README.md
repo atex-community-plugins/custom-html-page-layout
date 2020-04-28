@@ -46,8 +46,10 @@
   1. Navigate to your chosen Article page as a template. 
   2. Save the source of the page to HTML
   3. Pretty-ify the HTML to make it easier to read.
-  4. Break up the HTML into 3 sections, header, body & footer - this will make maintenance simpler.
+  4. Break up the HTML into e.g. 3 sections, header, body & footer - this will make maintenance simpler, but is not mandatory.
   5. See above to insert placeholders in the HTML to represent Preview article. Replace the actual values in the sample with the placeholder variables.
+  6. Change the Page Layout of the required Sites in the Polopoly Admin GUI to "Custom HTML Page Layout".
+  7. In the Main Slots, Insert an HTML element and Paste in the HTML snippets created above (steps 4 & 5).
  
   
   
