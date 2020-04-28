@@ -1,7 +1,7 @@
 # Custom HTML Page Layout Plugin
 
 
-  This plugin introduces a new Polopoly page layout called "Custom HTML Page Layout". The Page Layout has not pre-defined HTML structure and is intended for use for either building custom Preview Pages for Desk Editor, but can also
+  This plugin introduces a new Polopoly page layout called "Custom HTML Page Layout". The Page Layout has no pre-defined HTML structure and is intended for use for either building custom Preview Pages for Desk Editor, but can also
   be used for other custom HTML implementations.
 
 
