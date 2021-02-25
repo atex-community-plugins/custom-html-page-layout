@@ -15,8 +15,8 @@
             <param name="width">100%</param>
             <param name="widthRelative">true</param>
             <field name="main" input-template="p.siteengine.layout.Slot.it">
-              <param name="defaultInheritSetting">false</param>
-              <param name="displayInheritSetting">false</param>
+              <param name="defaultInheritSetting">true</param>
+              <param name="displayInheritSetting">true</param>
             </field>
           </layout>
         </layout>
